@@ -1,5 +1,7 @@
 package com.fisiofino.model;
 
+import java.time.LocalDate;
+
 /*
  * Model (la "M" de MVC): representa un pacient de la clínica.
  * Cada objecte equival a una fila de la taula patient de la base de dades.
@@ -10,10 +12,152 @@ package com.fisiofino.model;
 
 public class Pacient {
 
-/**************** HAS DE COMPLETAR EL CODI **************/
-/****** ATRIBUTS DE CLASSE ******************************/
-/****** GETTERS I SETTERS *******************************/
-/****** CONSTRUCTORS ************************************/
-/****** TO STRING ***************************************/
+    private int idPatient;
+    private String givenName;
+    private String familyName;
+    private String nif;
+    private LocalDate birthDate;
+    private String gender;
+    private String address;
+    private String city;
+    private String postalCode;
+    private String country;
+    private String telephone;
+    private String email;
+
+    public Pacient() {
+    }
+
+    public Pacient(int idPatient, String givenName, String familyName, String nif,
+                   LocalDate birthDate, String gender, String address,
+                   String city, String postalCode, String country,
+                   String telephone, String email) {
+        this.idPatient = idPatient;
+        this.givenName = givenName;
+        this.familyName = familyName;
+        this.nif = nif;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.address = address;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.telephone = telephone;
+        this.email = email;
+    }
+
+    public int getIdPatient() {
+        return idPatient;
+    }
+
+    public void setIdPatient(int idPatient) {
+        this.idPatient = idPatient;
+    }
+
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Pacient[" +
+                "idPatient=" + idPatient +
+                ", givenName='" + givenName + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", nif='" + nif + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", country='" + country + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ']';
+    }
 
 }
