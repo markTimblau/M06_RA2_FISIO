@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 public class Pacient {
 
-    private int idPatient;
+    private String idPatient;
     private String givenName;
     private String familyName;
     private String nif;
@@ -28,7 +28,7 @@ public class Pacient {
     public Pacient() {
     }
 
-    public Pacient(int idPatient, String givenName, String familyName, String nif,
+    public Pacient(String idPatient, String givenName, String familyName, String nif,
                    LocalDate birthDate, String gender, String address,
                    String city, String postalCode, String country,
                    String telephone, String email) {
@@ -46,11 +46,11 @@ public class Pacient {
         this.email = email;
     }
 
-    public int getIdPatient() {
+    public String getIdPatient() {
         return idPatient;
     }
 
-    public void setIdPatient(int idPatient) {
+    public void setIdPatient(String idPatient) {
         this.idPatient = idPatient;
     }
 

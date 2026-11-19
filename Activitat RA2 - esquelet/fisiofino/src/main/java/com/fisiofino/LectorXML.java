@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,23 +89,65 @@ public class LectorXML {
         for (int i = 0; i < atributs.getLength(); i++) {
             Node at = atributs.item(i);
             if (node.getNodeName().equals("telecom")) {
-/* AQUÍ TENIU UN EXEMPLE DE COM EXTREURE INFORMACIÓ D'ATRIBUTS
                  if (at.getTextContent().contains("tel")) {
-                    p.setTelefon(at.getTextContent().substring(4));
+                    p.setTelephone(at.getTextContent().substring(4));
                 }
                 if (at.getTextContent().contains("mailto")) {
-                    p.setMail(at.getTextContent().substring(7));
-                } */
+                    p.setEmail(at.getTextContent().substring(7));
+                }
+            }
+            if (node.getNodeName().equals("code")) {
+                if (at.getTextContent().contains("SNOMED")) {
+                    mp.setSnomed_code(Integer.parseInt(at.getTextContent().substring(7)));
+                }
             }
             /******************** HAS DE COMPLETAR EL CODI ***************/
         }
  
         // Cas base 2: element fulla (nom, cognoms...) -> mostrem nom i text a la mateixa línia
         if (esFulla(node)) {
-/* AQUÍ TENIU UN EXEMPLE DE COM EXTREURE EL TEXT DELS ELEMENTS
-             if (node.getNodeName().equals("given")) {
-                p.setNom(node.getTextContent());
-            } */
+            //PACIENT
+            if (node.getNodeName().equals("given")) {
+                p.setIdPatient(node.getTextContent());
+            } 
+            if (node.getNodeName().equals("family")) {
+                p.setFamilyName(node.getTextContent());
+            }
+            if (node.getNodeName().equals("birthTime")) {
+                p.setBirthDate(LocalDate.parse(node.getTextContent()));
+            }
+            if (node.getNodeName().equals("administrativeGenderCode")) {
+                p.setGender(node.getTextContent());
+            }
+            if (node.getNodeName().equals("postalCode")) {
+                p.setPostalCode(node.getTextContent());
+            }
+            if (node.getNodeName().equals("city")) {
+                p.setCity(node.getTextContent());
+            }
+            if (node.getNodeName().equals("streetAddressLine")) {
+                p.setAddress(node.getTextContent());
+            }
+            if (node.getNodeName().equals("country")) {
+                p.setCountry(node.getTextContent());
+            }
+
+            //MALALTIA PACIENT
+            if (node.getNodeName().equals("statusCode")) {
+                mp.setStatus(node.getTextContent());
+            }
+            if (node.getNodeName().equals("value")) {
+                mp.setTreatment(node.getTextContent());
+            }
+            if (node.getNodeName().equals("id")) {
+                mp.setId_diagnosis(Integer.parseInt(node.getTextContent()));
+            }
+            if (node.getNodeName().equals("subject")) {
+                mp.setId_patient(Integer.parseInt(node.getTextContent()));
+            }
+            if (node.getNodeName().equals("SnomedCode")) {
+                mp.setSnomed_code(Integer.parseInt(node.getTextContent()));
+            }
             return;
         /****************** HAS DE COMPLETAR EL CODI ********************/
         }
